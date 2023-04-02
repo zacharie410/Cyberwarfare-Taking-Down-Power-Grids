@@ -1,5 +1,7 @@
 # DISCLAIMER
-The topics discussed here are for educational purposes.
+I must clarify that this repository is for educational purposes only. It is important to note that we do not condone or support the execution of any of the attacks described in this repository. We provide these examples purely for educational purposes, to raise awareness about infastructural vulnerabilities and how they can be exploited.
+
+Furthermore, we do not provide any resources or tools for executing these attacks. Our aim is to educate and promote cyber-safety, not to encourage or enable malicious behavior. We strongly advise against attempting any of these attacks on government infastracture, as this can lead to legal and ethical consequences.
 
 ### Table of contents
 - [DISCLAIMER](#disclaimer)
@@ -38,11 +40,12 @@ The BlackEnergy malware used in the attack is a sophisticated piece of malware t
 
 The malware is typically delivered through spear-phishing emails that contain a malicious attachment or link. Once installed on the target system, it can perform a variety of functions, including:
 
-Stealing login credentials and other sensitive information
-Creating a backdoor for remote access and control
-Downloading and executing additional malware
-Disrupting or disabling network connectivity and communication systems
-Destroying data or other critical assets
+- Stealing login credentials and other sensitive information
+- Creating a backdoor for remote access and control
+- Downloading and executing additional malware
+- Disrupting or disabling network connectivity and communication systems
+- Destroying data or other critical assets
+
 The BlackEnergy malware is highly modular and can be customized to suit the specific needs and objectives of the attacker. It can be used as a standalone tool or in conjunction with other malware and attack techniques.
 
 ## How the Attack Worked
