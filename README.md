@@ -172,8 +172,8 @@ Bash script:
 sudo ip link add link eth0 name eth0.1 type vlan id 1
 sudo ip addr add 192.168.1.1/24 dev eth0.1
 sudo ip link set dev eth0.1 up
-
 ```
+This bash script is creating a new virtual LAN (VLAN) interface on the network interface "eth0". The VLAN interface is assigned an IP address of 192.168.1.1 with a subnet mask of /24 (255.255.255.0). Finally, the VLAN interface is brought up. This script can be used to create a separate network segment for critical infrastructure systems that are isolated from the rest of the network for security reasons.
 ## Application whitelisting to control which applications are allowed to run on a system:
 PowerShell script:
 ```PowerShell
@@ -183,15 +183,25 @@ New-AppLockerPolicy -PolicyName "Approved Apps Only" -RuleType Publisher -Action
 ## Intrusion Detection and Prevention Systems (IDPS) implementation for monitoring network traffic:
 Python script:
 ```python
+# Import Scapy module
 from scapy.all import *
 
+# Define a function to be used as the callback for the sniffing function
 def packet_callback(packet):
+    # Check if the packet contains TCP payload
     if packet[TCP].payload:
+        # Convert the payload to a string
         mail_packet = str(packet[TCP].payload)
+        # Check if the string contains the words "user" or "pass"
         if "user" in mail_packet.lower() or "pass" in mail_packet.lower():
+            # Print the destination IP address and payload contents
             print("[*] Server: {}".format(packet[IP].dst))
             print("[*] {}".format(packet[TCP].payload))
 
+# Use Scapy's sniff function to capture network traffic
+# Filter for packets with destination port 25 (SMTP), 110 (POP3), or 143 (IMAP)
+# Call the packet_callback function for each captured packet
+# Set store=0 to prevent storing captured packets in memory
 sniff(filter="tcp port 25 or tcp port 110 or tcp port 143", prn=packet_callback, store=0)
 ```
 
